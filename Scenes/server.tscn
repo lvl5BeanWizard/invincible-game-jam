@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://lajf5iu2kwdu"]
+
+[ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="1_ogqfs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogqfs"]
+albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdagj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2swk3"]
+bg_color = Color(1.6364455e-06, 0.7536886, 0.077702634, 1)
+
+[node name="Server" type="Node3D"]
+
+[node name="ServerSkin" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025082, 0)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = SubResource("StandardMaterial3D_ogqfs")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 27.0
+offset_top = 44.0
+offset_right = 325.0
+offset_bottom = 67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mdagj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2swk3")
+value = 100.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 155.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("1_ogqfs")
+text = "AI Server Health"
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2264476, 0)
+text = "Protect me senpai!"

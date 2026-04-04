@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://k3qolknt6k72"]
+[gd_scene load_steps=7 format=3 uid="uid://k3qolknt6k72"]
 
 [ext_resource type="PackedScene" uid="uid://dppixakc3cm44" path="res://Scenes/power_up_handler.tscn" id="1_iti4p"]
+[ext_resource type="PackedScene" uid="uid://dasabj0i5wtrx" path="res://addons/real-controller/character.tscn" id="2_dtjkg"]
+[ext_resource type="PackedScene" uid="uid://lajf5iu2kwdu" path="res://Scenes/server.tscn" id="3_eglq2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lpde8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,13 +28,28 @@ environment = SubResource("Environment_dtjkg")
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072280884, -0.07623291, -0.089782715)
+use_collision = true
 size = Vector3(20, 0.1, 20)
 
-[node name="Server" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1420784, 0)
-size = Vector3(1, 2.3449707, 1)
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04199791, 2.1032043, -7.7392817)
+use_collision = true
+size = Vector3(0.2290039, 4.187378, 20.101807)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.83615214, 0.54849756, 0, -0.54849756, 0.83615214, 0, 4.8867645, 11.655508)
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0080624, -6.8899117)
+operation = 2
+size = Vector3(1, 2.378662, 1.3048096)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Floor/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0080624, 6.9170055)
+operation = 2
+size = Vector3(1, 2.378662, 1.3048096)
 
 [node name="PowerUpHandler" parent="." instance=ExtResource("1_iti4p")]
+
+[node name="Character" parent="." instance=ExtResource("2_dtjkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79034853, 0.9608059, 7.7648187)
+
+[node name="Server" parent="." instance=ExtResource("3_eglq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.622163)
