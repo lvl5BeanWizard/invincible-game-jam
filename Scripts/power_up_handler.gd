@@ -13,8 +13,9 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("square"): #square button for test
 		visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pick_powerups()
 
 func pick_powerups():
@@ -41,6 +42,7 @@ func pick_powerups():
 	
 func _on_powerup_picked(powerup: Powerup):
 	print(powerup.name) #TODO use this later
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#clear the cards
 	for card in powerup_cards:
 		card.queue_free()
