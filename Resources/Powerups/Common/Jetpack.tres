@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://b02urvaxbu7gq"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_e5dt7"]
+[ext_resource type="Texture2D" uid="uid://dvsxl28d7fxcp" path="res://Sprites/genericItem_color_124.png" id="2_m4v84"]
+
+[resource]
+script = ExtResource("1_e5dt7")
+name = "Jetpack"
+desc = "Fly with this thing"
+texture = ExtResource("2_m4v84")
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"
