@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://k3qolknt6k72"]
+[gd_scene load_steps=8 format=3 uid="uid://k3qolknt6k72"]
 
 [ext_resource type="PackedScene" uid="uid://dppixakc3cm44" path="res://Scenes/power_up_handler.tscn" id="1_iti4p"]
 [ext_resource type="PackedScene" uid="uid://dasabj0i5wtrx" path="res://addons/real-controller/character.tscn" id="2_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://lajf5iu2kwdu" path="res://Scenes/server.tscn" id="3_eglq2"]
+[ext_resource type="PackedScene" uid="uid://pg064uvkcmuu" path="res://Scenes/enemy_spawner_system.tscn" id="4_rsyfn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lpde8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,3 +54,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79034853, 0.9608059, 7.764
 
 [node name="Server" parent="." instance=ExtResource("3_eglq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.622163)
+
+[node name="EnemySpawnerSystem" parent="." node_paths=PackedStringArray("spawn1", "spawn2", "spawn3", "spawn4") instance=ExtResource("4_rsyfn")]
+spawn1 = NodePath("Node3D")
+spawn2 = NodePath("Node3D2")
+spawn3 = NodePath("Node3D3")
+spawn4 = NodePath("Node3D4")
+
+[node name="Node3D" type="Node3D" parent="EnemySpawnerSystem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.343582, 0, -5.8634815)
+
+[node name="Node3D2" type="Node3D" parent="EnemySpawnerSystem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1385384, 0, -5.8634815)
+
+[node name="Node3D3" type="Node3D" parent="EnemySpawnerSystem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.742073, 0, -5.8634815)
+
+[node name="Node3D4" type="Node3D" parent="EnemySpawnerSystem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2695236, 0, -2.8463511)
