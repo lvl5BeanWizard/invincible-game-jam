@@ -1,7 +1,38 @@
-[gd_scene format=3 uid="uid://k3qolknt6k72"]
+[gd_scene load_steps=5 format=3 uid="uid://k3qolknt6k72"]
+
+[ext_resource type="PackedScene" uid="uid://dppixakc3cm44" path="res://Scenes/power_up_handler.tscn" id="1_iti4p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lpde8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iti4p"]
+sky_material = SubResource("ProceduralSkyMaterial_lpde8")
+
+[sub_resource type="Environment" id="Environment_dtjkg"]
+background_mode = 2
+sky = SubResource("Sky_iti4p")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="TestLevel" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dtjkg")
+
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072280884, -0.07623291, -0.089782715)
-size = Vector3(10, 0.1, 10)
+size = Vector3(20, 0.1, 20)
+
+[node name="Server" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1420784, 0)
+size = Vector3(1, 2.3449707, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.83615214, 0.54849756, 0, -0.54849756, 0.83615214, 0, 4.8867645, 11.655508)
+
+[node name="PowerUpHandler" parent="." instance=ExtResource("1_iti4p")]
