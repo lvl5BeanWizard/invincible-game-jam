@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://k3qolknt6k72"]
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072280884, -0.07623291, -0.089782715)
+size = Vector3(10, 0.1, 10)
