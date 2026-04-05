@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=2 format=3 uid="uid://ch7cbqw7lc5ye"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_v5l7c"]
+
+[resource]
+script = ExtResource("1_v5l7c")
+name = "Door Alarms"
+desc = "Place lights above the spawn points to know when humans are coming through!"
+type = 2
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

@@ -4,9 +4,9 @@ var card: PackedScene = preload("res://Scenes/power_up_card.tscn")
 var powerup_cards = []
 
 var common_powerups: Array[Powerup] = [
-	preload("res://Resources/Powerups/Common/ArmorPlating.tres"),
-	preload("res://Resources/Powerups/Common/ChainsawArm.tres"),
-	preload("res://Resources/Powerups/Common/Jetpack.tres")
+	preload("res://Resources/Powerups/Defensive/ArmorPlating.tres"),
+	preload("res://Resources/Powerups/Offensive/ChainsawArm.tres"),
+	preload("res://Resources/Powerups/Utility/Jetpack.tres")
 ]
 
 func _ready():
@@ -48,3 +48,6 @@ func _on_powerup_picked(powerup: Powerup):
 		card.queue_free()
 	powerup_cards = []
 	visible = false
+
+func _on_reroll_button_pressed():
+	pick_powerups()

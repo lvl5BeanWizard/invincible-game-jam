@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://b5umy78qtgsmv"]
+
+[ext_resource type="Texture2D" uid="uid://cbf43mwjbnq1p" path="res://Sprites/genericItem_color_102.png" id="1_hg6xw"]
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="2_yq4j3"]
+
+[resource]
+script = ExtResource("2_yq4j3")
+name = "Armor Plating"
+desc = "Some extra armor plating"
+image_texture = ExtResource("1_hg6xw")
+type = 1
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"
