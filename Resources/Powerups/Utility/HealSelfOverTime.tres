@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=2 format=3 uid="uid://jelapkjc03t8"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_nceka"]
+
+[resource]
+script = ExtResource("1_nceka")
+name = "Heal Over Time"
+desc = "Heal yourself gradually over time"
+type = 2
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

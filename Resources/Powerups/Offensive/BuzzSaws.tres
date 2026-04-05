@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=2 format=3 uid="uid://dtskerkgrb8jw"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_mumhu"]
+
+[resource]
+script = ExtResource("1_mumhu")
+name = "BuzzSaws"
+desc = "Spawn buzzsaws every few seconds to deal damage"
+type = 0
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

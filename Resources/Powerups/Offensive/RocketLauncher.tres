@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=2 format=3 uid="uid://dymi7grmp0a6k"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_scx4t"]
+
+[resource]
+script = ExtResource("1_scx4t")
+name = "Rocket Launcher"
+desc = "Gain rocket launchers on your back!"
+type = 0
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"
