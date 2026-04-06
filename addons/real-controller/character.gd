@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	_handle_gravity_and_jump(delta)
 	_handle_camera_transition(delta)
 	_handle_controller_camera(delta)
-
+	
 	if frozen:
 		handle_frozen_movement()
 		move_and_slide()
