@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://k3qolknt6k72"]
+[gd_scene load_steps=12 format=3 uid="uid://k3qolknt6k72"]
 
 [ext_resource type="Script" uid="uid://dpb15suip4ejj" path="res://Scripts/test_level.gd" id="1_3ihge"]
 [ext_resource type="Material" uid="uid://bhnrl444id55i" path="res://Textures/server.tres" id="1_7w7ni"]
 [ext_resource type="Material" uid="uid://bu266h70wnij8" path="res://Textures/glass.tres" id="1_btda1"]
-[ext_resource type="PackedScene" uid="uid://dppixakc3cm44" path="res://Scenes/power_up_handler.tscn" id="1_iti4p"]
 [ext_resource type="Material" uid="uid://gsjxdr6nyeum" path="res://Textures/flooring.tres" id="1_xq3o0"]
 [ext_resource type="PackedScene" uid="uid://dasabj0i5wtrx" path="res://addons/real-controller/character.tscn" id="2_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://lajf5iu2kwdu" path="res://Scenes/server.tscn" id="3_eglq2"]
@@ -123,6 +122,16 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.83
 use_collision = true
 size = Vector3(0.2, 4, 20)
 
+[node name="CSGBox3D9" type="CSGBox3D" parent="Level"]
+transform = Transform3D(4.371139e-08, 1, 2.7896448e-15, 0.99999994, -4.371139e-08, 1.1920929e-07, 1.1920929e-07, 0, -0.99999994, -24.849764, 3.8974776, 31.736002)
+use_collision = true
+size = Vector3(0.2, 10.349243, 10.104828)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Level/CSGBox3D9"]
+transform = Transform3D(0.8660253, 5.8562177e-09, -0.49999997, 5.8562164e-09, 1, 2.1855694e-08, 0.49999997, -2.1855692e-08, 0.8660253, -1.9940817, 0, 8.690569)
+use_collision = true
+size = Vector3(0.2, 10.349243, 8.489105)
+
 [node name="ServerGlass1" type="CSGBox3D" parent="Level"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.862362, 2.042263, 26.707998)
 use_collision = true
@@ -227,10 +236,8 @@ use_collision = true
 size = Vector3(2.3334472, 4, 7.5898438)
 material = ExtResource("1_7w7ni")
 
-[node name="PowerUpHandler" parent="." instance=ExtResource("1_iti4p")]
-
 [node name="Character" parent="." instance=ExtResource("2_dtjkg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.74163, 0.9608059, 21.42562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.642105, 0.9608059, 21.42562)
 allow_camera_mode_switch = true
 
 [node name="Server" parent="." instance=ExtResource("3_eglq2")]
@@ -252,30 +259,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.161692, -1.9073486e-06, 14
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.260769, 0, 36.827805)
 
 [node name="Node3D4" type="Node3D" parent="EnemySpawnerSystem"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5566435, 0, -8.687416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.338536, 0, 16.59945)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Minimap" type="MarginContainer" parent="."]
 offset_right = 1151.0
 offset_bottom = 651.0
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Minimap"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_xq3o0")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/PanelContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Minimap/PanelContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/PanelContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Minimap/PanelContainer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(200, 200)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="MarginContainer/PanelContainer/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="Minimap/PanelContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -23.77169, 21.701681, 21.177505)
 cull_mask = 1048571

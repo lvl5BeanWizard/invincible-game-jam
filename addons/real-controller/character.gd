@@ -15,6 +15,7 @@ enum CameraMode {
 @onready var camera_3d: Camera3D = %Camera3D
 @onready var spring_arm: SpringArm3D = camera_pivot.get_node("SpringArm3D")
 @onready var character: Node3D = $character
+@onready var arm_laser: Node3D = $character/ArmLaser
 
 ## Movement Settings
 ## -----------------------------------------------------------------------------
@@ -71,7 +72,17 @@ var frozen: bool = false
 var target_camera_distance: float = 3.5
 var is_transitioning_camera: bool = false
 
+#begin mad science
+@onready var powerup_handler = $PowerUpHandler
+signal shoot_arm_laser
+signal stop_arm_laser
+var powerups = []
+
+#end mad science
+
 func _ready() -> void:
+	powerup_handler.got_powerup.connect(_on_got_powerup)
+	
 	## Captures the mouse cursor for first-person camera control.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	target_camera_distance = 0.0 if camera_mode == CameraMode.FIRST_PERSON else camera_distance
@@ -83,6 +94,10 @@ func _physics_process(delta: float) -> void:
 	_handle_gravity_and_jump(delta)
 	_handle_camera_transition(delta)
 	_handle_controller_camera(delta)
+	_handle_shooting(delta)
+	
+	if powerup_handler.visible:
+		frozen = true
 	
 	if frozen:
 		handle_frozen_movement()
@@ -200,3 +215,18 @@ func _input(event: InputEvent) -> void:
 	if InputMap.has_action("camera_mode_switch") and event.is_action_pressed("camera_mode_switch") and allow_camera_mode_switch:
 		camera_mode = CameraMode.THIRD_PERSON if camera_mode == CameraMode.FIRST_PERSON else CameraMode.FIRST_PERSON
 		_update_camera_mode()
+		
+		
+##mad science cont.
+
+##handles shooting our arm laser
+func _handle_shooting(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		shoot_arm_laser.emit()
+	elif Input.is_action_just_released("shoot"):
+		stop_arm_laser.emit()
+
+func _on_got_powerup(powerup: Powerup):
+	print(powerup.name)
+	frozen = false
+	

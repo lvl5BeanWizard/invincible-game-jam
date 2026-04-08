@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://2mpkwlf4uvup"]
+
+[ext_resource type="Script" uid="uid://brj8hckq8dcr6" path="res://Scripts/arm_laser.gd" id="1_ou7ml"]
+[ext_resource type="Material" uid="uid://co7f7ivc6dx35" path="res://Textures/arm_laser.tres" id="2_s0wuh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ou7ml"]
+material = ExtResource("2_s0wuh")
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s0wuh"]
+height = 1.0
+
+[node name="ArmLaser" type="Node3D"]
+script = ExtResource("1_ou7ml")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1000)
+
+[node name="Laser" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ou7ml")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Weapon"]]
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 5.551115e-17, 0)
+shape = SubResource("CylinderShape3D_s0wuh")
