@@ -1,7 +1,11 @@
 extends Node2D
 
+@onready var enemy_spawner = get_node("/root/TestLevel/EnemySpawnerSystem")
+
 var card: PackedScene = preload("res://Scenes/power_up_card.tscn")
 var powerup_cards = []
+
+signal got_powerup(powerup: Powerup)
 
 var common_powerups: Array[Powerup] = [
 	preload("res://Resources/Powerups/Defensive/ArmorPlating.tres"),
@@ -10,13 +14,7 @@ var common_powerups: Array[Powerup] = [
 ]
 
 func _ready():
-	pass
-
-func _process(delta):
-	if Input.is_action_just_pressed("square"): #square button for test
-		visible = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		pick_powerups()
+	enemy_spawner.wave_cleared.connect(_on_wave_cleared)
 
 func pick_powerups():
 	var card1 : PowerupCard = card.instantiate()
@@ -41,7 +39,7 @@ func pick_powerups():
 	powerup_cards.append(card3)
 	
 func _on_powerup_picked(powerup: Powerup):
-	print(powerup.name) #TODO use this later
+	got_powerup.emit(powerup)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#clear the cards
 	for card in powerup_cards:
@@ -50,4 +48,9 @@ func _on_powerup_picked(powerup: Powerup):
 	visible = false
 
 func _on_reroll_button_pressed():
+	pick_powerups()
+
+func _on_wave_cleared():
+	visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	pick_powerups()

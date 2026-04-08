@@ -35,7 +35,8 @@ theme_override_fonts/font = ExtResource("1_ogqfs")
 text = "AI Server Health"
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010064483, 2.3549323, 0.69247174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010064483, 2.3549323, 0.04048133)
+billboard = 1
 text = "Protect me senpai!"
 font = ExtResource("1_ogqfs")
 font_size = 80

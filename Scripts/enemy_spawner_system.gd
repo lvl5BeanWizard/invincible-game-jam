@@ -7,19 +7,27 @@ extends Node3D
 
 @onready var curr_wave = 0
 
+signal wave_cleared
+
 #dict for number of enemies to spawn each wave
 #wave:num_of_dudes
 #TODO no idea how balanced these numbers are
 @onready var human_dict = {
-	1:10, #10 for test 
-	2:5,
-	3:10
+	1:1,
+	2:3,
+	3:5,
+	4:10,
+	5:15,
+	6:25,
+	7:40,
+	8:75
 }
 
 #the dude to spawn
 @onready var human1 = preload("res://Scenes/base_human.tscn")
 #rng for where to spawn em
 @onready var rand = RandomNumberGenerator.new()
+#counter for when to end the wave
 @onready var dead_humans = 0
 
 func _ready():
@@ -28,8 +36,7 @@ func _ready():
 	$SpawnHolder/Spawner3.position = spawn3.position
 	$SpawnHolder/Spawner4.position = spawn4.position
 
-func enemy_death():
-	print("enemy_death")
+func _on_enemy_death():
 	dead_humans += 1
 	if dead_humans == human_dict[curr_wave]:
 		$InBetweenWaves.start()
@@ -45,6 +52,7 @@ func spawn_humans():
 		var rand_num = rand.randi_range(0, spawn_length)
 		var spawn_pos = $SpawnHolder.get_child(rand_num).position
 		h.position = spawn_pos
+		h.ded.connect(_on_enemy_death)
 		add_child(h)
 		#sleep for a second before adding another
 		await get_tree().create_timer(1.0).timeout
@@ -56,6 +64,13 @@ func update_level(level: int):
 	spawn_humans()
 
 func _on_in_between_waves_timeout():
-	print("Leaving wave: ", curr_wave)
+	if curr_wave > 0:
+		#upgrade time
+		wave_cleared.emit()
+	
+		#give the player 3 seconds to choose an upgrade before starting the next wave
+		await get_tree().create_timer(3.0).timeout
+	
 	curr_wave += 1
+	print("Starting wave: ", curr_wave)
 	update_level(curr_wave)
