@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgtsxbm158wxl"]
+[gd_scene format=3 uid="uid://cgtsxbm158wxl"]
 
 [ext_resource type="Script" uid="uid://cxtnr6st10e4a" path="res://Scripts/rocket.gd" id="1_wrv6b"]
 [ext_resource type="ArrayMesh" uid="uid://bfw1p36nf0mil" path="res://Meshes/RocketMesh.res" id="2_kvp10"]

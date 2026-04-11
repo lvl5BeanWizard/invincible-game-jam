@@ -40,10 +40,10 @@ func _process(delta):
 			curr_Selected = 3
 		change_selected()
 	
-	if Input.is_action_just_pressed("menu_back"):
+	if Input.is_action_just_pressed("menu_quit"):
 		quit()
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("menu_accept"):
 		match curr_Selected:
 			1:
 				get_tree().change_scene_to_file("res://Scenes/test_level.tscn")
