@@ -5,6 +5,9 @@ extends Node2D
 var card: PackedScene = preload("res://Scenes/power_up_card.tscn")
 var powerup_cards = []
 
+#using this to track which powerup is selected for the controller input
+var selected = 1
+
 signal got_powerup(powerup: Powerup)
 
 var common_powerups: Array[Powerup] = [
@@ -17,6 +20,10 @@ func _ready():
 	enemy_spawner.wave_cleared.connect(_on_wave_cleared)
 
 func pick_powerups():
+	for p in powerup_cards:
+		p.queue_free()
+	powerup_cards.clear()
+	
 	var card1 : PowerupCard = card.instantiate()
 	card1.powerup = common_powerups.pick_random()
 	card1.position = $Spot1.position
@@ -38,6 +45,8 @@ func pick_powerups():
 	card3.powerup_picked.connect(_on_powerup_picked)
 	powerup_cards.append(card3)
 	
+	update_selected()
+	
 func _on_powerup_picked(powerup: Powerup):
 	got_powerup.emit(powerup)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -49,6 +58,28 @@ func _on_powerup_picked(powerup: Powerup):
 
 func _on_reroll_button_pressed():
 	pick_powerups()
+
+func _process(delta):
+	if visible:
+		#reroll
+		if Input.is_action_just_pressed("square"):
+			pick_powerups()
+		elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("dpad_left"):
+			if selected > 0:
+				selected -= 1
+				update_selected()
+		elif Input.is_action_just_pressed("right") or Input.is_action_just_pressed("dpad_right"):
+			if selected < 2:
+				selected += 1
+				update_selected()
+		elif Input.is_action_just_pressed("jump"):
+			_on_powerup_picked(powerup_cards[selected].get_powerup())
+
+func update_selected():
+	for p in powerup_cards:
+		p.deselect()
+	powerup_cards[selected].select()
+	print(selected)
 
 func _on_wave_cleared():
 	visible = true
