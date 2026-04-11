@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="invincible-game-jam"
-run/main_scene="uid://k3qolknt6k72"
+run/main_scene="uid://knc52dt2yfmo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
