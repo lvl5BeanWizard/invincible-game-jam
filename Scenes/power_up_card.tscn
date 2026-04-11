@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://s1b68tabyd4g"]
+[gd_scene format=3 uid="uid://s1b68tabyd4g"]
 
 [ext_resource type="Script" uid="uid://cejblrl62erj8" path="res://Scripts/power_up_card.gd" id="1_d7ae1"]
 [ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_3hvv8"]
 [ext_resource type="Texture2D" uid="uid://dbeewl201id1a" path="res://Textures/red_card_texture.tres" id="2_w02nh"]
 
-[node name="PowerUpCard" type="Node2D"]
+[node name="PowerUpCard" type="Node2D" unique_id=932205520]
 script = ExtResource("1_d7ae1")
 
-[node name="TextureRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2014856000]
 visible = false
 offset_right = 214.0
 offset_bottom = 310.0
 mouse_default_cursor_shape = 2
 color = Color(0, 0.34605795, 0.05794435, 1)
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=40471810]
 offset_right = 213.0
 offset_bottom = 312.0
 texture_normal = ExtResource("2_w02nh")
 
-[node name="Name" type="Label" parent="Button"]
+[node name="Name" type="Label" parent="Button" unique_id=1394837616]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 11.0
@@ -30,7 +30,7 @@ theme_override_fonts/font = ExtResource("2_3hvv8")
 text = "PowerUp Name"
 horizontal_alignment = 1
 
-[node name="Descr" type="Label" parent="Button"]
+[node name="Descr" type="Label" parent="Button" unique_id=915450927]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 208.0
@@ -43,7 +43,7 @@ theme_override_font_sizes/font_size = 12
 text = "Powerup Desc"
 autowrap_mode = 3
 
-[node name="Image" type="TextureRect" parent="Button"]
+[node name="Image" type="TextureRect" parent="Button" unique_id=1912127357]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 52.0
