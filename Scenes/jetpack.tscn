@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2t17ndaacex1"]
+
+[ext_resource type="ArrayMesh" uid="uid://dk7rbe765ygds" path="res://Meshes/JetpackMesh.res" id="1_nea11"]
+
+[node name="Jetpack" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46702337, 0)
+mesh = ExtResource("1_nea11")

@@ -50,4 +50,12 @@ offset_top = 52.0
 offset_right = 187.0
 offset_bottom = 180.0
 
+[node name="SelectedRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 219.0
+offset_bottom = 318.0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

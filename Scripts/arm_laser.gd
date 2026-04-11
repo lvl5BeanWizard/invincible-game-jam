@@ -6,15 +6,17 @@ extends Node3D
 var shooting: bool = false
 var laser_damage = 0.2
 
+var aim_node
+
 func _ready():
 	character.shoot_arm_laser.connect(_on_shoot)
 	character.stop_arm_laser.connect(_on_stop_shoot)
 
 func _process(delta):
-	
 	if shooting:
 		$RayCast3D.enabled = true
 		$Laser.visible = true
+		#$Laser.look_at(aim_node.position)
 		$Area3D/CollisionShape3D.disabled = false
 		if $RayCast3D.is_colliding():
 			var collision_point = $RayCast3D.get_collision_point()
@@ -27,15 +29,17 @@ func _process(delta):
 			$Area3D/CollisionShape3D.position.z = distance/2
 			
 			var collider = $RayCast3D.get_collider()
-			if collider.is_in_group("Enemy"):
-				collider.get_parent()._take_damage(laser_damage)
+			if collider != null:
+				if collider.is_in_group("Enemy"):
+					collider.get_parent()._take_damage(laser_damage)
 				
 	else:
 		$RayCast3D.enabled = false
 		$Laser.visible = false
 		$Area3D/CollisionShape3D.disabled = true
 
-func _on_shoot():
+func _on_shoot(laser_aim_node: Node3D):
+	aim_node = laser_aim_node
 	shooting = true
 	
 func _on_stop_shoot():

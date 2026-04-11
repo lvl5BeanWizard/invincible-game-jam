@@ -74,10 +74,19 @@ var is_transitioning_camera: bool = false
 
 #begin mad science
 @onready var powerup_handler = $PowerUpHandler
-signal shoot_arm_laser
-signal stop_arm_laser
 var powerups = []
 
+signal shoot_arm_laser(aim_node)
+signal stop_arm_laser
+@onready var laser_aim_node = $CameraPivot/SpringArm3D/Camera3D/LaserAimNode
+
+var has_rockets = false
+var rocket_qty = 3
+var rocket_str = 3
+@onready var rocket_launcher = $character/GeneralSkeleton/BoneAttachment3D/RocketLauncher
+
+var has_jetpack = false
+@onready var jetpack = $character/GeneralSkeleton/BoneAttachment3D/Jetpack
 #end mad science
 
 func _ready() -> void:
@@ -95,6 +104,8 @@ func _physics_process(delta: float) -> void:
 	_handle_camera_transition(delta)
 	_handle_controller_camera(delta)
 	_handle_shooting(delta)
+	if has_rockets:
+		_handle_rockets(delta)
 	
 	if powerup_handler.visible:
 		frozen = true
@@ -119,15 +130,21 @@ func handle_frozen_movement() -> void:
 
 ## Handles gravity application and jump mechanics.
 func _handle_gravity_and_jump(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		is_jumping = velocity.y > 0
-	else:
-		is_jumping = false
+	if not has_jetpack:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			is_jumping = velocity.y > 0
+		else:
+			is_jumping = false
 
-	if not frozen and Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-		is_jumping = true
+		if not frozen and Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = jump_velocity
+			is_jumping = true
+	else:
+		if Input.is_action_pressed("jump"):
+			velocity.y = jump_velocity
+		else:
+			velocity += get_gravity() * delta
 
 ## Processes movement input and calculates movement direction relative to camera.
 func _handle_movement_input() -> void:
@@ -222,11 +239,22 @@ func _input(event: InputEvent) -> void:
 ##handles shooting our arm laser
 func _handle_shooting(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
-		shoot_arm_laser.emit()
+		shoot_arm_laser.emit(laser_aim_node)
 	elif Input.is_action_just_released("shoot"):
 		stop_arm_laser.emit()
 
+func _handle_rockets(delta):
+	if Input.is_action_just_pressed("triangle"):
+		rocket_launcher._spawn_rockets(rocket_qty, rocket_str)
+
 func _on_got_powerup(powerup: Powerup):
 	print(powerup.name)
+	#this is gross, but hey it's a game jam
+	if powerup.name == "Rocket Launcher":
+		has_rockets = true
+		rocket_launcher.visible = true
+	elif powerup.name == "Jetpack":
+		has_jetpack = true
+		jetpack.visible = true
 	frozen = false
 	

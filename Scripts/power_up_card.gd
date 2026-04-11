@@ -33,7 +33,6 @@ func _ready():
 		_:
 			button.texture_normal = green_texture
 			
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,3 +41,12 @@ func _process(delta):
 func _on_button_pressed():
 	#on click, send out a signal saying we picked this one
 	powerup_picked.emit(powerup)
+
+func deselect():
+	$SelectedRect.visible = false
+
+func select():
+	$SelectedRect.visible = true
+	
+func get_powerup():
+	return powerup
