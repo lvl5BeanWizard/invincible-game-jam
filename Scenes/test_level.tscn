@@ -237,7 +237,7 @@ size = Vector3(2.3334472, 4, 7.5898438)
 material = ExtResource("1_7w7ni")
 
 [node name="Character" parent="." instance=ExtResource("2_dtjkg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.642105, 0.9608059, 21.42562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.800511, 0.9608059, 27.67262)
 allow_camera_mode_switch = true
 
 [node name="Server" parent="." instance=ExtResource("3_eglq2")]

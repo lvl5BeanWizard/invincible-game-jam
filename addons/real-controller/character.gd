@@ -78,6 +78,10 @@ signal shoot_arm_laser
 signal stop_arm_laser
 var powerups = []
 
+var has_rockets = false
+var rocket_qty = 3
+var rocket_str = 3
+
 #end mad science
 
 func _ready() -> void:
@@ -95,6 +99,8 @@ func _physics_process(delta: float) -> void:
 	_handle_camera_transition(delta)
 	_handle_controller_camera(delta)
 	_handle_shooting(delta)
+	if has_rockets:
+		_handle_rockets(delta)
 	
 	if powerup_handler.visible:
 		frozen = true
@@ -226,7 +232,16 @@ func _handle_shooting(delta: float) -> void:
 	elif Input.is_action_just_released("shoot"):
 		stop_arm_laser.emit()
 
+func _handle_rockets(delta):
+	if Input.is_action_just_pressed("triangle"):
+		$character/RocketLauncher._spawn_rockets(rocket_qty, rocket_str)
+
 func _on_got_powerup(powerup: Powerup):
 	print(powerup.name)
+	#this is gross, but hey it's a game jam
+	if powerup.name == "Rocket Launcher":
+		has_rockets = true
+		$character/RocketLauncher.visible = true
+	
 	frozen = false
 	
