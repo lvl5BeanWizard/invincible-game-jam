@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://k3qolknt6k72"]
+[gd_scene load_steps=13 format=3 uid="uid://k3qolknt6k72"]
 
 [ext_resource type="Script" uid="uid://dpb15suip4ejj" path="res://Scripts/test_level.gd" id="1_3ihge"]
 [ext_resource type="Material" uid="uid://bhnrl444id55i" path="res://Textures/server.tres" id="1_7w7ni"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dasabj0i5wtrx" path="res://addons/real-controller/character.tscn" id="2_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://lajf5iu2kwdu" path="res://Scenes/server.tscn" id="3_eglq2"]
 [ext_resource type="PackedScene" uid="uid://pg064uvkcmuu" path="res://Scenes/enemy_spawner_system.tscn" id="4_rsyfn"]
+[ext_resource type="Material" uid="uid://cauuxa0u7nife" path="res://Materials/vfx_gameboy.tres" id="8_2yvf5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lpde8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -286,3 +287,14 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="Minimap/PanelContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -23.77169, 21.701681, 21.177505)
 cull_mask = 1048571
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("8_2yvf5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
