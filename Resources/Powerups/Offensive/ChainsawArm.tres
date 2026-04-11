@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://dtjxkxn05r4ip"]
+[gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://dtjxkxn05r4ip"]
 
 [ext_resource type="Texture2D" uid="uid://bl7a1labp7pb3" path="res://Sprites/genericItem_color_017.png" id="1_5tu0n"]
 [ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="2_r11cp"]

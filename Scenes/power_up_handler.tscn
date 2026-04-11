@@ -1,28 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dppixakc3cm44"]
+[gd_scene format=3 uid="uid://dppixakc3cm44"]
 
 [ext_resource type="Script" uid="uid://d16653pwpfeiy" path="res://Scripts/power_up_handler.gd" id="1_pq6gq"]
 [ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_pq6gq"]
 
-[node name="PowerUpHandler" type="Node2D"]
+[node name="PowerUpHandler" type="Node2D" unique_id=889517059]
 visible = false
 script = ExtResource("1_pq6gq")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1499178902]
 z_index = -2
 offset_right = 1153.0
 offset_bottom = 651.0
 color = Color(2.695322e-06, 0.80740815, 0.097233586, 0.2784314)
 
-[node name="Spot1" type="Node2D" parent="."]
+[node name="Spot1" type="Node2D" parent="." unique_id=1339581674]
 position = Vector2(120, 160)
 
-[node name="Spot2" type="Node2D" parent="."]
+[node name="Spot2" type="Node2D" parent="." unique_id=42839111]
 position = Vector2(480, 160)
 
-[node name="Spot3" type="Node2D" parent="."]
+[node name="Spot3" type="Node2D" parent="." unique_id=25397699]
 position = Vector2(840, 160)
 
-[node name="RerollButton" type="Button" parent="."]
+[node name="RerollButton" type="Button" parent="." unique_id=256888380]
 offset_left = 416.0
 offset_top = 560.0
 offset_right = 674.0
@@ -32,5 +32,5 @@ theme_override_font_sizes/font_size = 20
 action_mode = 0
 text = "Reroll"
 
-[connection signal="pressed" from="RerollButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="RerollButton" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="RerollButton" to="." method="_on_button_pressed"]
