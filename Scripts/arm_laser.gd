@@ -27,8 +27,9 @@ func _process(delta):
 			$Area3D/CollisionShape3D.position.z = distance/2
 			
 			var collider = $RayCast3D.get_collider()
-			if collider.is_in_group("Enemy"):
-				collider.get_parent()._take_damage(laser_damage)
+			if collider != null:
+				if collider.is_in_group("Enemy"):
+					collider.get_parent()._take_damage(laser_damage)
 				
 	else:
 		$RayCast3D.enabled = false

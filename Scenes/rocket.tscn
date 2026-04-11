@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgtsxbm158wxl"]
+
+[ext_resource type="Script" uid="uid://cxtnr6st10e4a" path="res://Scripts/rocket.gd" id="1_wrv6b"]
+[ext_resource type="ArrayMesh" uid="uid://bfw1p36nf0mil" path="res://Meshes/RocketMesh.res" id="2_kvp10"]
+
+[sub_resource type="Curve3D" id="Curve3D_kvp10"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -0.006515734, -0.17180601, 0, 0, 0, 0, 0, 0, 0, 1.9933466, -3.382836, 0, 0, 0, 0, 0, 0, 0, 1.3222507, -7.3631287, 0, 0, 0, 0, 0, 0, 0, -0.50590616, -9.63097, 0, 0, 0, 0, 0, 0, 0, -8.327642, -12.7550335),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4fq7"]
+radius = 0.22607422
+height = 0.94854736
+
+[node name="Rocket" type="Node3D"]
+script = ExtResource("1_wrv6b")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_kvp10")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 0.84883076, -0.5286604, 0, 0.5286604, 0.84883076, 0, -0.006515734, -0.17180601)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(0.15, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, -0.020074248, -0.28580207)
+mesh = ExtResource("2_kvp10")
+skeleton = NodePath("../../..")
+
+[node name="Rocket" type="Area3D" parent="Path3D/PathFollow3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Rocket"]
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, -1.4901161e-08, 0.008331314)
+shape = SubResource("CapsuleShape3D_n4fq7")
+
+[connection signal="body_entered" from="Path3D/PathFollow3D/Rocket" to="." method="_on_rocket_body_entered"]
