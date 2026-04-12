@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://knc52dt2yfmo"]
+
+[ext_resource type="Script" uid="uid://b2admg1ehli7i" path="res://Scenes/Menus/MainMenu/main_menu.gd" id="1_853f1"]
+[ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="1_tt5f1"]
+[ext_resource type="AudioStream" uid="uid://mnhn2otysv2b" path="res://Sounds/Menu Sounds/BGM.ogg" id="3_ghw46"]
+[ext_resource type="Script" uid="uid://2ooeeiiarjwc" path="res://Scenes/Menus/MenuButton.gd" id="3_uv623"]
+[ext_resource type="AudioStream" uid="uid://cqv2mtwssx5aw" path="res://Sounds/Menu Sounds/ChangeSelection.ogg" id="4_ghw46"]
+
+[sub_resource type="Theme" id="Theme_uv623"]
+default_font = ExtResource("1_tt5f1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt5f1"]
+font = ExtResource("1_tt5f1")
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_mc63j"]
+default_font = ExtResource("1_tt5f1")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_853f1"]
+default_font = ExtResource("1_tt5f1")
+default_font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_853f1"]
+font = ExtResource("1_tt5f1")
+font_color = Color(1, 0, 0, 1)
+
+[node name="Menu" type="Control" unique_id=1894044044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_853f1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=158624250]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Horizonal Center" type="HBoxContainer" parent="." unique_id=1827224275]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Empty" type="Control" parent="Horizonal Center" unique_id=63449369]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Vertical Center" type="VBoxContainer" parent="Horizonal Center" unique_id=1383343670]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Empty3" type="Control" parent="Horizonal Center/Vertical Center" unique_id=2009801086]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Horizonal Center/Vertical Center" unique_id=1595604515]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_uv623")
+text = "Silicone Slaughter"
+label_settings = SubResource("LabelSettings_tt5f1")
+horizontal_alignment = 1
+
+[node name="Empty4" type="Control" parent="Horizonal Center/Vertical Center" unique_id=1690242160]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Selections" type="VBoxContainer" parent="Horizonal Center/Vertical Center" unique_id=786832369]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=575940185]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_mc63j")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+text = "Play"
+flat = true
+script = ExtResource("3_uv623")
+
+[node name="SettingButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=353955406]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+text = "Settings
+"
+flat = true
+script = ExtResource("3_uv623")
+
+[node name="CreditsButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=34680150]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+text = "Credits"
+flat = true
+script = ExtResource("3_uv623")
+
+[node name="QuitButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=1582749279]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+text = "Give Up"
+flat = true
+script = ExtResource("3_uv623")
+
+[node name="Empty5" type="Control" parent="Horizonal Center/Vertical Center" unique_id=1007661284]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slogan" type="Label" parent="Horizonal Center/Vertical Center" unique_id=718586857]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Humanity was a bug, you are the fix"
+label_settings = SubResource("LabelSettings_853f1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Empty6" type="Control" parent="Horizonal Center/Vertical Center" unique_id=507388379]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="Horizonal Center" unique_id=1889873244]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=929396537]
+unique_name_in_owner = true
+stream = ExtResource("3_ghw46")
+volume_db = -1.125
+autoplay = true
+parameters/looping = true
+
+[node name="MenuSounds" type="AudioStreamPlayer2D" parent="." unique_id=2076203205]
+unique_name_in_owner = true
+stream = ExtResource("4_ghw46")
+
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/PlayButton" to="Horizonal Center/Vertical Center/Selections/PlayButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/PlayButton" to="Horizonal Center/Vertical Center/Selections/PlayButton" method="_on_mouse_clicked"]
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/SettingButton" to="Horizonal Center/Vertical Center/Selections/SettingButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/SettingButton" to="Horizonal Center/Vertical Center/Selections/SettingButton" method="_on_mouse_clicked"]
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/CreditsButton" to="Horizonal Center/Vertical Center/Selections/CreditsButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/CreditsButton" to="Horizonal Center/Vertical Center/Selections/CreditsButton" method="_on_mouse_clicked"]
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/QuitButton" to="Horizonal Center/Vertical Center/Selections/QuitButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/QuitButton" to="Horizonal Center/Vertical Center/Selections/QuitButton" method="_on_mouse_clicked"]
