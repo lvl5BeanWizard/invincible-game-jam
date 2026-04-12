@@ -211,6 +211,8 @@ func _apply_movement() -> void:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
+
+
 ## Handles mouse input for camera rotation with tilt limits.
 func _unhandled_input(event: InputEvent) -> void:
 
