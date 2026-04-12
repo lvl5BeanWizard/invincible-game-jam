@@ -1,10 +1,9 @@
 extends Control
 
 @onready var PlayButton : Button = %PlayButton
-@onready var SettingsButton : Button  = %SettingButton
 @onready var CreditsButton: Button = %CreditsButton
 @onready var QuitButton : Button  = %QuitButton
-@onready var AllButtons : Array[Button] = [PlayButton,SettingsButton,CreditsButton,QuitButton]
+@onready var AllButtons : Array[Button] = [PlayButton,QuitButton]
 
 @onready var _selected_button : Button = PlayButton
 var Selected_Index = 1
@@ -52,29 +51,22 @@ func change_hover(PassedButton : Button):
 		"Play":
 			_selected_button = PlayButton
 			Selected_Index = 1
-		"Settings":
-			_selected_button = SettingsButton
-			Selected_Index = 2
 		"Credits":
 			_selected_button = CreditsButton
-			Selected_Index = 3
+			Selected_Index = 2
 		"Give Up":
 			_selected_button = QuitButton
-			Selected_Index = 4
+			Selected_Index = 2
 		_:
 			_selected_button = PlayButton
 			Selected_Index = 1
-	print_debug(Selected_Index)
 	PassedButton.grab_focus()
 	MenuSounds.play()
 
 func ActivateButton(PassedButton : Button):
 	match PassedButton.text:
-
 		"Play":
 			get_tree().change_scene_to_file("res://Scenes/test_level.tscn")
-		"Settings":
-			get_tree().change_scene_to_file("res://Scenes/Menus/Settings/SettingsMenu.tscn")
 		"Credits":
 			get_tree().change_scene_to_file("res://Scenes/Menus/Credits/CreditsMenu.tscn")
 		"Give Up":
@@ -94,13 +86,10 @@ func change_selected():
 		1:
 			_selected_button = PlayButton
 		2:
-			_selected_button = SettingsButton
-		3:
 			_selected_button = CreditsButton
-		4:
+		3:
 			_selected_button = QuitButton
 		_:
 			_selected_button = PlayButton
 	_selected_button.grab_focus()
-	print_debug(Selected_Index)
 	MenuSounds.play()
