@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvcnlm1psogpu"]
+[gd_scene format=3 uid="uid://dvcnlm1psogpu"]
 
 [ext_resource type="PackedScene" uid="uid://dasabj0i5wtrx" path="res://addons/real-controller/character.tscn" id="1_l2f18"]
 

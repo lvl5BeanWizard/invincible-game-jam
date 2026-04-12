@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Powerup" load_steps=2 format=3 uid="uid://3efokvt8xv8l"]
+[gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://3efokvt8xv8l"]
 
 [ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_ilpkx"]
 
