@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cgtsxbm158wxl"]
+[gd_scene load_steps=10 format=3 uid="uid://cgtsxbm158wxl"]
 
 [ext_resource type="Script" uid="uid://cxtnr6st10e4a" path="res://Scripts/rocket.gd" id="1_wrv6b"]
-[ext_resource type="ArrayMesh" uid="uid://bfw1p36nf0mil" path="res://Meshes/RocketMesh.res" id="2_kvp10"]
+[ext_resource type="ArrayMesh" uid="uid://cqdlu08o6l2sf" path="res://Meshes/RocketMesh.res" id="2_kvp10"]
 
 [sub_resource type="Curve3D" id="Curve3D_kvp10"]
 _data = {
@@ -9,6 +9,32 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Curve" id="Curve_kvp10"]
+_data = [Vector2(0, 0.5393259), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_14ogo"]
+curve = SubResource("Curve_kvp10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n4fq7"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.5
+color = Color(0.28104696, 0.26836973, 0.25227305, 1)
+alpha_curve = SubResource("CurveTexture_14ogo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjw3j"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_qcqlf"]
+material = SubResource("StandardMaterial3D_fjw3j")
+radial_segments = 8
+rings = 4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4fq7"]
 radius = 0.22607422
@@ -27,6 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 0.84883076, -0.5286604, 0, 0.5286604, 0.8488
 transform = Transform3D(0.15, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, -0.020074248, -0.28580207)
 mesh = ExtResource("2_kvp10")
 skeleton = NodePath("../../..")
+
+[node name="Smoke" type="GPUParticles3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(0.15, 0, 0, 0, 0, 0.15, 0, -0.15, 0, 0, -0.021917336, 0.30904782)
+amount = 24
+fixed_fps = 60
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_n4fq7")
+draw_pass_1 = SubResource("SphereMesh_qcqlf")
 
 [node name="Rocket" type="Area3D" parent="Path3D/PathFollow3D"]
 
