@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://cwkfxrh0mm6e0"]
+
+[ext_resource type="Script" uid="uid://d1s2dreg4epgw" path="res://Scenes/Menus/Credits/credits_menu.gd" id="1_pfo6n"]
+[ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_jb7w3"]
+[ext_resource type="AudioStream" uid="uid://mnhn2otysv2b" path="res://Sounds/Menu Sounds/BGM.ogg" id="3_ibv3f"]
+[ext_resource type="Script" uid="uid://2ooeeiiarjwc" path="res://Scenes/Menus/MenuButton.gd" id="3_jb7w3"]
+[ext_resource type="AudioStream" uid="uid://cqv2mtwssx5aw" path="res://Sounds/Menu Sounds/ChangeSelection.ogg" id="4_dqcp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pfo6n"]
+font = ExtResource("2_jb7w3")
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_pfo6n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt5f1"]
+font = ExtResource("2_jb7w3")
+font_size = 64
+
+[sub_resource type="Theme" id="Theme_853f1"]
+default_font = ExtResource("2_jb7w3")
+default_font_size = 32
+
+[node name="Menu" type="Control" unique_id=1894044044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pfo6n")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=158624250]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Horizonal Center" type="HBoxContainer" parent="." unique_id=1827224275]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Empty" type="Control" parent="Horizonal Center" unique_id=63449369]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Vertical Center" type="VBoxContainer" parent="Horizonal Center" unique_id=1383343670]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Empty3" type="Control" parent="Horizonal Center/Vertical Center" unique_id=2009801086]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Horizonal Center/Vertical Center" unique_id=1595604515]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Silicone Slaughter"
+label_settings = SubResource("LabelSettings_pfo6n")
+horizontal_alignment = 1
+
+[node name="Empty4" type="Control" parent="Horizonal Center/Vertical Center" unique_id=1690242160]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Credits" type="VBoxContainer" parent="Horizonal Center/Vertical Center" unique_id=942528091]
+layout_mode = 2
+
+[node name="DevelopedLabel" type="Label" parent="Horizonal Center/Vertical Center/Credits" unique_id=927160589]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_pfo6n")
+text = "Developed By"
+label_settings = SubResource("LabelSettings_tt5f1")
+horizontal_alignment = 1
+
+[node name="RayLabel" type="Label" parent="Horizonal Center/Vertical Center/Credits" unique_id=1215203046]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Ray May"
+label_settings = SubResource("LabelSettings_tt5f1")
+horizontal_alignment = 1
+
+[node name="KenLabel" type="Label" parent="Horizonal Center/Vertical Center/Credits" unique_id=68024001]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Ken Z"
+label_settings = SubResource("LabelSettings_tt5f1")
+horizontal_alignment = 1
+
+[node name="Empty6" type="Control" parent="Horizonal Center/Vertical Center" unique_id=1839425555]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Selections" type="VBoxContainer" parent="Horizonal Center/Vertical Center" unique_id=786832369]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=1582749279]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+text = "Return"
+flat = true
+script = ExtResource("3_jb7w3")
+
+[node name="Empty5" type="Control" parent="Horizonal Center/Vertical Center" unique_id=1007661284]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="Horizonal Center" unique_id=1889873244]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=929396537]
+unique_name_in_owner = true
+stream = ExtResource("3_ibv3f")
+volume_db = -1.125
+autoplay = true
+
+[node name="MenuSounds" type="AudioStreamPlayer2D" parent="." unique_id=2076203205]
+unique_name_in_owner = true
+stream = ExtResource("4_dqcp3")
+
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/ReturnButton" to="Horizonal Center/Vertical Center/Selections/ReturnButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/ReturnButton" to="Horizonal Center/Vertical Center/Selections/ReturnButton" method="_on_mouse_clicked"]
