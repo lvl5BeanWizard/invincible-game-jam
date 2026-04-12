@@ -12,6 +12,7 @@ func _ready():
 	debris.emitting = true
 	smoke.emitting = true
 	fire.emitting = true
+	$ExplosionSound.play()
 	
 	#turn off the damage after 3/4s of a second
 	await get_tree().create_timer(0.75).timeout

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgtsxbm158wxl"]
+[gd_scene load_steps=11 format=3 uid="uid://cgtsxbm158wxl"]
 
 [ext_resource type="Script" uid="uid://cxtnr6st10e4a" path="res://Scripts/rocket.gd" id="1_wrv6b"]
 [ext_resource type="ArrayMesh" uid="uid://cqdlu08o6l2sf" path="res://Meshes/RocketMesh.res" id="2_kvp10"]
+[ext_resource type="AudioStream" uid="uid://bkcjnrsalb7c" path="res://Sounds/Sound Effects/thrusterFire_000.ogg" id="3_hthiq"]
 
 [sub_resource type="Curve3D" id="Curve3D_kvp10"]
 _data = {
@@ -57,6 +58,7 @@ skeleton = NodePath("../../..")
 [node name="Smoke" type="GPUParticles3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(0.15, 0, 0, 0, 0, 0.15, 0, -0.15, 0, 0, -0.021917336, 0.30904782)
 amount = 24
+lifetime = 0.25
 fixed_fps = 60
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_n4fq7")
@@ -67,5 +69,9 @@ draw_pass_1 = SubResource("SphereMesh_qcqlf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Rocket"]
 transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, -1.4901161e-08, 0.008331314)
 shape = SubResource("CapsuleShape3D_n4fq7")
+
+[node name="RocketSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_hthiq")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Path3D/PathFollow3D/Rocket" to="." method="_on_rocket_body_entered"]

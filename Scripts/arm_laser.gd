@@ -14,6 +14,8 @@ func _ready():
 
 func _process(delta):
 	if shooting:
+		if $LaserSound.playing == false:
+			$LaserSound.play()
 		$RayCast3D.enabled = true
 		$Laser.visible = true
 		#$Laser.look_at(aim_node.position)
@@ -37,6 +39,7 @@ func _process(delta):
 		$RayCast3D.enabled = false
 		$Laser.visible = false
 		$Area3D/CollisionShape3D.disabled = true
+		$LaserSound.stop()
 
 func _on_shoot(laser_aim_node: Node3D):
 	aim_node = laser_aim_node

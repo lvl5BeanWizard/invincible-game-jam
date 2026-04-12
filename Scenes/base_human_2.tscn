@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://df2ii8wrko1bj"]
+[gd_scene load_steps=8 format=3 uid="uid://b4maggiddeyc6"]
 
-[ext_resource type="Script" uid="uid://byx3a68g1pv8m" path="res://Scripts/base_human.gd" id="1_8pojx"]
-[ext_resource type="PackedScene" uid="uid://xjol8nfann6a" path="res://Scenes/human_skin.tscn" id="2_rof10"]
-[ext_resource type="PackedScene" uid="uid://2h2lgo5ylgwa" path="res://Scenes/healthbar_3d.tscn" id="2_tbb8h"]
+[ext_resource type="Script" uid="uid://byx3a68g1pv8m" path="res://Scripts/base_human.gd" id="1_ln5v4"]
+[ext_resource type="PackedScene" uid="uid://xjol8nfann6a" path="res://Scenes/human_skin.tscn" id="2_3omxg"]
+[ext_resource type="ArrayMesh" uid="uid://bkx2fkmqriclf" path="res://Meshes/bat.res" id="3_3omxg"]
+[ext_resource type="PackedScene" uid="uid://2h2lgo5ylgwa" path="res://Scenes/healthbar_3d.tscn" id="3_o6ly6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1pujy"]
 
@@ -12,10 +13,20 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="BaseHuman2" type="Node3D" groups=["Enemy"]]
-script = ExtResource("1_8pojx")
+script = ExtResource("1_ln5v4")
+damage = 5
 
-[node name="HumanSkin" parent="." instance=ExtResource("2_rof10")]
+[node name="HumanSkin" parent="." instance=ExtResource("2_3omxg")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0.76691234, 0)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="HumanSkin/Human/Root/Skeleton3D" index="1"]
+transform = Transform3D(0.14072986, -0.08310258, -0.98655415, 0.85074973, 0.519814, 0.07757101, 0.50637794, -0.8502276, 0.14385265, -0.56362593, 0.33029324, -0.060989052)
+bone_name = "RightHand"
+bone_idx = 40
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HumanSkin/Human/Root/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(-0.016624868, -0.14865099, -0.011247056, 0.14467487, -0.018817618, 0.03485792, -0.03595539, -0.006984369, 0.1454594, -0.7450638, 0.04142648, -0.10164872)
+mesh = ExtResource("3_3omxg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -38,7 +49,7 @@ shape = SubResource("CapsuleShape3D_8pojx")
 disable_3d = true
 transparent_bg = true
 
-[node name="Healthbar3D" parent="SubViewport" instance=ExtResource("2_tbb8h")]
+[node name="Healthbar3D" parent="SubViewport" instance=ExtResource("3_o6ly6")]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3716364, 0)
@@ -51,3 +62,6 @@ one_shot = true
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+
+[editable path="HumanSkin"]
+[editable path="HumanSkin/Human"]

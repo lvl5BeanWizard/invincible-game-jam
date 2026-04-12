@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://pg064uvkcmuu"]
+[gd_scene load_steps=2 format=3 uid="uid://pg064uvkcmuu"]
 
 [ext_resource type="Script" uid="uid://bddll0chd02sr" path="res://Scripts/enemy_spawner_system.gd" id="1_xowqa"]
 
-[node name="EnemySpawnerSystem" type="Node3D" unique_id=496069752]
+[node name="EnemySpawnerSystem" type="Node3D"]
 script = ExtResource("1_xowqa")
 
-[node name="SpawnHolder" type="Node3D" parent="." unique_id=1368976227]
+[node name="SpawnHolder" type="Node3D" parent="."]
 
-[node name="Spawner1" type="Node3D" parent="SpawnHolder" unique_id=1511602257]
+[node name="Spawner1" type="Node3D" parent="SpawnHolder"]
 
-[node name="Spawner2" type="Node3D" parent="SpawnHolder" unique_id=2028974441]
+[node name="Spawner2" type="Node3D" parent="SpawnHolder"]
 
-[node name="Spawner3" type="Node3D" parent="SpawnHolder" unique_id=1344308784]
+[node name="Spawner3" type="Node3D" parent="SpawnHolder"]
 
-[node name="Spawner4" type="Node3D" parent="SpawnHolder" unique_id=362987590]
+[node name="Spawner4" type="Node3D" parent="SpawnHolder"]
 
-[node name="InBetweenWaves" type="Timer" parent="." unique_id=239528497]
+[node name="InBetweenWaves" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
