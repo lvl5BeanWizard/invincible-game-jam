@@ -43,8 +43,8 @@ func _take_damage(damage):
 func _on_area_3d_area_entered(area):
 	if area.is_in_group("Server"):
 		running = false
-	server._take_damage(damage)
-	$AttackCooldown.start()
+		server._take_damage(damage)
+		$AttackCooldown.start()
 
 
 func _on_attack_cooldown_timeout():

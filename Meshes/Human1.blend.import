@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ce8gac86ltsxv"
-path="res://.godot/imported/Human1.blend-d94e2205e7c0801adfbf4ae30813e2b2.scn"
+valid=false
 
 [deps]
 
 source_file="res://Meshes/Human1.blend"
-dest_files=["res://.godot/imported/Human1.blend-d94e2205e7c0801adfbf4ae30813e2b2.scn"]
 
 [params]
 
