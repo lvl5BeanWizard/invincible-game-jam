@@ -5,15 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://c20a2lwaivx8k" path="res://Textures/ControlIcons/Keyboard/keyboard_tab.png" id="3_exrfi"]
 
 [node name="PowerUpHandler" type="Node2D" unique_id=889517059]
+visible = false
 script = ExtResource("1_pq6gq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1581250118]
+visible = false
 
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1499178902]
 z_index = -2
 offset_right = 1153.0
 offset_bottom = 651.0
-color = Color(0, 0.80784315, 0.09803922, 0.09803922)
+color = Color(2.695322e-06, 0.80740815, 0.097233586, 0.2784314)
 
 [node name="Spot1" type="Node2D" parent="CanvasLayer" unique_id=1339581674]
 unique_name_in_owner = true

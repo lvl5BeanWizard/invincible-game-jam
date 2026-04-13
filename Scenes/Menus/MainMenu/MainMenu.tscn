@@ -99,7 +99,17 @@ text = "Play"
 flat = true
 script = ExtResource("3_uv623")
 
-[node name="CreditsButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=34680150]
+[node name="ControlsButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=34680150]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+text = "Controls"
+flat = true
+script = ExtResource("3_uv623")
+
+[node name="CreditsButton" type="Button" parent="Horizonal Center/Vertical Center/Selections" unique_id=1277502]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_853f1")
@@ -155,6 +165,8 @@ stream = ExtResource("4_ghw46")
 
 [connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/PlayButton" to="Horizonal Center/Vertical Center/Selections/PlayButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/PlayButton" to="Horizonal Center/Vertical Center/Selections/PlayButton" method="_on_mouse_clicked"]
+[connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/ControlsButton" to="Horizonal Center/Vertical Center/Selections/ControlsButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/ControlsButton" to="Horizonal Center/Vertical Center/Selections/ControlsButton" method="_on_mouse_clicked"]
 [connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/CreditsButton" to="Horizonal Center/Vertical Center/Selections/CreditsButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="Horizonal Center/Vertical Center/Selections/CreditsButton" to="Horizonal Center/Vertical Center/Selections/CreditsButton" method="_on_mouse_clicked"]
 [connection signal="mouse_entered" from="Horizonal Center/Vertical Center/Selections/QuitButton" to="Horizonal Center/Vertical Center/Selections/QuitButton" method="_on_mouse_entered"]

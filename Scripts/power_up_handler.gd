@@ -2,11 +2,15 @@ extends Node2D
 
 @onready var enemy_spawner = get_node("/root/TestLevel/EnemySpawnerSystem")
 
+
 var card: PackedScene = preload("res://Scenes/power_up_card.tscn")
+var ControllerIcon = preload("res://Textures/ControlIcons/Controller/playstation_button_color_square_outline.png")
+var KBMIcon = preload("res://Textures/ControlIcons/Keyboard/keyboard_tab.png")
 var powerup_cards = []
 
 #using this to track which powerup is selected for the controller input
 var selected = 1
+var new_selection = 1
 
 signal got_powerup(powerup: Powerup)
 
@@ -15,12 +19,15 @@ var common_powerups: Array[Powerup] = [
 	preload("res://Resources/Powerups/Offensive/ChainsawArm.tres"),
 	preload("res://Resources/Powerups/Utility/Jetpack.tres"),
 	preload("res://Resources/Powerups/Offensive/RocketLauncher.tres"),
-	preload("res://Resources/Powerups/Offensive/BuzzSaws.tres")
-	
-]
-
+	preload("res://Resources/Powerups/Offensive/BuzzSaws.tres")]
 func _ready():
 	enemy_spawner.wave_cleared.connect(_on_wave_cleared)
+
+func _unhandled_input(_event: InputEvent) -> void:
+		if Input.is_action_just_pressed("KBMKeys"):
+			$CanvasLayer/RerollButton.set_button_icon(KBMIcon)
+		elif Input.is_action_just_pressed("ControllerKeys"):
+			$CanvasLayer/RerollButton.set_button_icon(ControllerIcon)
 
 func pick_powerups():
 	for p in powerup_cards:
@@ -29,21 +36,21 @@ func pick_powerups():
 	
 	var card1 : PowerupCard = card.instantiate()
 	card1.powerup = common_powerups.pick_random()
-	card1.position = $Spot1.position
+	card1.position = %Spot1.position
 	get_tree().root.add_child(card1)
 	card1.powerup_picked.connect(_on_powerup_picked)
 	powerup_cards.append(card1)
 	
 	var card2 : PowerupCard = card.instantiate()
 	card2.powerup = common_powerups.pick_random()
-	card2.position = $Spot2.position
+	card2.position = %Spot2.position
 	get_tree().root.add_child(card2)
 	card2.powerup_picked.connect(_on_powerup_picked)
 	powerup_cards.append(card2)
 	
 	var card3 : PowerupCard = card.instantiate()
 	card3.powerup = common_powerups.pick_random()
-	card3.position = $Spot3.position
+	card3.position = %Spot3.position
 	get_tree().root.add_child(card3)
 	card3.powerup_picked.connect(_on_powerup_picked)
 	powerup_cards.append(card3)
@@ -58,6 +65,7 @@ func _on_powerup_picked(powerup: Powerup):
 		card.queue_free()
 	powerup_cards = []
 	visible = false
+	$CanvasLayer.visible = false
 
 func _on_reroll_button_pressed():
 	pick_powerups()
@@ -65,18 +73,23 @@ func _on_reroll_button_pressed():
 func _process(delta):
 	if visible:
 		#reroll
-		if Input.is_action_just_pressed("square"):
+		new_selection = selected
+		if Input.is_action_just_pressed("reroll"):
 			pick_powerups()
-		elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("dpad_left"):
-			if selected > 0:
+		elif Input.is_action_just_pressed("left"):
 				selected -= 1
-				update_selected()
-		elif Input.is_action_just_pressed("right") or Input.is_action_just_pressed("dpad_right"):
-			if selected < 2:
+		elif Input.is_action_just_pressed("right"):
 				selected += 1
-				update_selected()
 		elif Input.is_action_just_pressed("jump"):
 			_on_powerup_picked(powerup_cards[selected].get_powerup())
+		
+		if selected > 2:
+			selected = 0
+		elif selected < 0:
+			selected = 2
+			
+		if new_selection != selected:
+			update_selected()
 
 func update_selected():
 	for p in powerup_cards:
@@ -86,5 +99,6 @@ func update_selected():
 
 func _on_wave_cleared():
 	visible = true
+	$CanvasLayer.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	pick_powerups()

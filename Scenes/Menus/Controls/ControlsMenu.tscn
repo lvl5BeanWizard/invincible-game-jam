@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://cwkfxrh0mm6e0"]
+
+[ext_resource type="Script" uid="uid://d1s2dreg4epgw" path="res://Scenes/Menus/Controls/controls_menu.gd" id="1_pfo6n"]
+[ext_resource type="Texture2D" uid="uid://2pbui12dgnt4" path="res://Textures/ControlIcons/Keyboard/keyboard_arrows_all.png" id="2_8cayo"]
+[ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_jb7w3"]
+[ext_resource type="Texture2D" uid="uid://bocwf1o5qtmnx" path="res://Textures/ControlIcons/Controller/playstation_stick_l.png" id="3_fuhsn"]
+[ext_resource type="AudioStream" uid="uid://mnhn2otysv2b" path="res://Sounds/Menu Sounds/BGM.ogg" id="3_ibv3f"]
+[ext_resource type="Script" uid="uid://2ooeeiiarjwc" path="res://Scenes/Menus/MenuButton.gd" id="3_jb7w3"]
+[ext_resource type="AudioStream" uid="uid://cqv2mtwssx5aw" path="res://Sounds/Menu Sounds/ChangeSelection.ogg" id="4_dqcp3"]
+[ext_resource type="Texture2D" uid="uid://bos4xwf10kmbj" path="res://Textures/ControlIcons/Keyboard/mouse_move.png" id="4_udj1t"]
+[ext_resource type="Texture2D" uid="uid://cb6d2fgmnhmnw" path="res://Textures/ControlIcons/Controller/playstation_stick_r.png" id="5_ejf72"]
+[ext_resource type="Texture2D" uid="uid://bqr0hkn65uwmf" path="res://Textures/ControlIcons/Controller/playstation_button_color_cross_outline.png" id="5_p4gs4"]
+[ext_resource type="Texture2D" uid="uid://c20a2lwaivx8k" path="res://Textures/ControlIcons/Keyboard/keyboard_tab.png" id="6_rle2g"]
+[ext_resource type="Texture2D" uid="uid://c5vtmgkq7jsdh" path="res://Textures/ControlIcons/Keyboard/keyboard_space_icon.png" id="6_vq1hq"]
+[ext_resource type="Texture2D" uid="uid://dv1v8idiajpwg" path="res://Textures/ControlIcons/Controller/playstation_button_color_square_outline.png" id="7_ld76t"]
+[ext_resource type="Texture2D" uid="uid://df3kw3xdkjl2o" path="res://Textures/ControlIcons/Keyboard/mouse_left.png" id="8_r326g"]
+[ext_resource type="Texture2D" uid="uid://4gqm4s3wnjy2" path="res://Textures/ControlIcons/Controller/playstation_trigger_r2.png" id="9_225rn"]
+[ext_resource type="Texture2D" uid="uid://cleyaywba1pcs" path="res://Textures/ControlIcons/Keyboard/mouse_right.png" id="10_2dxwv"]
+[ext_resource type="Texture2D" uid="uid://bwlrd08rq84qv" path="res://Textures/ControlIcons/Controller/playstation_trigger_l2.png" id="11_mmhyc"]
+
+[sub_resource type="Theme" id="Theme_853f1"]
+default_font = ExtResource("2_jb7w3")
+default_font_size = 32
+
+[node name="Menu" type="Control" unique_id=1894044044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pfo6n")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=158624250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Horizonal Center" type="HBoxContainer" parent="." unique_id=1827224275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Empty4" type="HBoxContainer" parent="Horizonal Center" unique_id=235006364]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CVerticalCenter" type="VBoxContainer" parent="Horizonal Center" unique_id=1383343670]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Empty" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1263406423]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LabelSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1313342376]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/LabelSpan" unique_id=1002584753]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Action:"
+horizontal_alignment = 1
+
+[node name="KBMLabel" type="Label" parent="Horizonal Center/CVerticalCenter/LabelSpan" unique_id=251571507]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "KB / M:"
+horizontal_alignment = 1
+
+[node name="ControllerLabel" type="Label" parent="Horizonal Center/CVerticalCenter/LabelSpan" unique_id=122751319]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Controller:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RunSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1471087073]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/RunSpan" unique_id=1931756329]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Movement | Select Upgrade:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/RunSpan" unique_id=1453127135]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("2_8cayo")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/RunSpan" unique_id=123038561]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("3_fuhsn")
+stretch_mode = 3
+
+[node name="JumpSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1675526500]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/JumpSpan" unique_id=693287185]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Jump | Apply Upgrade:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/JumpSpan" unique_id=1362291988]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("6_vq1hq")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/JumpSpan" unique_id=1180983917]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("5_p4gs4")
+stretch_mode = 3
+
+[node name="RerollSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=623446158]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/RerollSpan" unique_id=784763869]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Reroll Upgrades:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/RerollSpan" unique_id=600257181]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("6_rle2g")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/RerollSpan" unique_id=1394938677]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("7_ld76t")
+stretch_mode = 3
+
+[node name="CameraSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1900412489]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/CameraSpan" unique_id=2124063550]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Camera:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/CameraSpan" unique_id=602579510]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("4_udj1t")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/CameraSpan" unique_id=1809022616]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("5_ejf72")
+stretch_mode = 3
+
+[node name="LaserSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1800741215]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/LaserSpan" unique_id=499463456]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Laser:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/LaserSpan" unique_id=88767032]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("8_r326g")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/LaserSpan" unique_id=1401930719]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("9_225rn")
+stretch_mode = 3
+
+[node name="MissleSpan" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=222706058]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionLabel" type="Label" parent="Horizonal Center/CVerticalCenter/MissleSpan" unique_id=164193120]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Missles:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KBMLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/MissleSpan" unique_id=1468680551]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("10_2dxwv")
+stretch_mode = 3
+
+[node name="ControllerLabel" type="TextureRect" parent="Horizonal Center/CVerticalCenter/MissleSpan" unique_id=1714533654]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("11_mmhyc")
+stretch_mode = 3
+
+[node name="Empty2" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=948956392]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Selections" type="VBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=786832369]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ReturnButton" type="Button" parent="Horizonal Center/CVerticalCenter/Selections" unique_id=1582749279]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_853f1")
+theme_override_colors/font_color = Color(0, 0.7294118, 0, 1)
+text = "Return"
+flat = true
+script = ExtResource("3_jb7w3")
+
+[node name="Empty4" type="Control" parent="Horizonal Center/CVerticalCenter/Selections" unique_id=1690242160]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty5" type="HBoxContainer" parent="Horizonal Center/CVerticalCenter" unique_id=1594450216]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Empty3" type="HBoxContainer" parent="Horizonal Center" unique_id=2031830660]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=929396537]
+unique_name_in_owner = true
+stream = ExtResource("3_ibv3f")
+volume_db = -1.125
+autoplay = true
+
+[node name="MenuSounds" type="AudioStreamPlayer2D" parent="." unique_id=2076203205]
+unique_name_in_owner = true
+stream = ExtResource("4_dqcp3")
+
+[connection signal="mouse_entered" from="Horizonal Center/CVerticalCenter/Selections/ReturnButton" to="Horizonal Center/CVerticalCenter/Selections/ReturnButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="Horizonal Center/CVerticalCenter/Selections/ReturnButton" to="Horizonal Center/CVerticalCenter/Selections/ReturnButton" method="_on_mouse_clicked"]

@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.78431374)
 
 [node name="Horizonal Center" type="HBoxContainer" parent="." unique_id=1827224275]
 layout_mode = 1
