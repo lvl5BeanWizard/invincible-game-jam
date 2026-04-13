@@ -87,6 +87,9 @@ var rocket_str = 3
 
 var has_jetpack = false
 @onready var jetpack = $character/GeneralSkeleton/BoneAttachment3D/Jetpack
+
+@onready var server = get_node("/root/TestLevel/Server")
+
 #end mad science
 
 func _ready() -> void:
@@ -143,8 +146,10 @@ func _handle_gravity_and_jump(delta: float) -> void:
 	else:
 		if Input.is_action_pressed("jump"):
 			velocity.y = jump_velocity
+			jetpack.emit_smoke(true)
 		else:
 			velocity += get_gravity() * delta
+			jetpack.emit_smoke(false)
 
 ## Processes movement input and calculates movement direction relative to camera.
 func _handle_movement_input() -> void:
@@ -258,5 +263,7 @@ func _on_got_powerup(powerup: Powerup):
 	elif powerup.name == "Jetpack":
 		has_jetpack = true
 		jetpack.visible = true
+	elif powerup.name == "Server Heals":
+		server.set_heal_over_time(2)
 	frozen = false
 	

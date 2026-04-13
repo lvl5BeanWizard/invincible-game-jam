@@ -26,6 +26,7 @@ signal wave_cleared
 #the dudes to spawn
 @onready var human1 = preload("res://Scenes/base_human.tscn")
 @onready var human_w_bat = preload("res://Scenes/base_human_2.tscn")
+@onready var boss_human = preload("res://Scenes/boss_human.tscn")
 
 #rng for where to spawn em
 @onready var rand = RandomNumberGenerator.new()
@@ -46,12 +47,14 @@ func _on_enemy_death():
 
 func spawn_humans():
 	for i in range(human_dict[curr_wave]):
-		var rand_num = rand.randi_range(0,1)
+		var rand_num = rand.randi_range(0,4)
 		var h
-		if rand_num == 0:
+		if rand_num < 2:
 			h = human1.instantiate()
-		elif rand_num == 1:
+		elif rand_num < 4:
 			h = human_w_bat.instantiate()
+		elif rand_num == 4:
+			h = boss_human.instantiate()
 		print("spawning enemy")
 		#check the children number in our spawn holder
 		var spawn_length = $SpawnHolder.get_child_count() -1

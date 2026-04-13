@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lajf5iu2kwdu"]
+[gd_scene format=3 uid="uid://lajf5iu2kwdu"]
 
 [ext_resource type="Script" uid="uid://ccqwtmfignbda" path="res://Scripts/server.gd" id="1_2swk3"]
 [ext_resource type="Material" uid="uid://bhnrl444id55i" path="res://Textures/server.tres" id="1_mdagj"]
@@ -13,16 +13,16 @@ bg_color = Color(1.6364455e-06, 0.7536886, 0.077702634, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdagj"]
 size = Vector3(11, 1, 11)
 
-[node name="Server" type="Node3D"]
+[node name="Server" type="Node3D" unique_id=1118061198]
 script = ExtResource("1_2swk3")
 
-[node name="ServerSkin" type="CSGBox3D" parent="."]
+[node name="ServerSkin" type="CSGBox3D" parent="." unique_id=1276350285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025082, 0.01103282)
 use_collision = true
 size = Vector3(3, 2, 2)
 material = ExtResource("1_mdagj")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=452463827]
 offset_left = 27.0
 offset_top = 44.0
 offset_right = 325.0
@@ -31,7 +31,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_mdagj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2swk3")
 value = 100.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=974193673]
 offset_left = 30.0
 offset_top = 18.0
 offset_right = 155.0
@@ -39,15 +39,20 @@ offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("1_ogqfs")
 text = "AI Server Health"
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=411970435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010064483, 2.3549323, 0.04048133)
 billboard = 1
 text = "Protect me senpai!"
 font = ExtResource("1_ogqfs")
 font_size = 80
 
-[node name="OuterWall" type="Area3D" parent="." groups=["Server"]]
+[node name="OuterWall" type="Area3D" parent="." unique_id=1111243133 groups=["Server"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterWall" unique_id=1945211709]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033294678, 0.30078125, -0.031555176)
 shape = SubResource("BoxShape3D_mdagj")
+
+[node name="HealTimer" type="Timer" parent="." unique_id=1876571938]
+wait_time = 3.0
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

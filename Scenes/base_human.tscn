@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://df2ii8wrko1bj"]
+[gd_scene format=3 uid="uid://df2ii8wrko1bj"]
 
 [ext_resource type="Script" uid="uid://byx3a68g1pv8m" path="res://Scripts/base_human.gd" id="1_8pojx"]
 [ext_resource type="PackedScene" uid="uid://xjol8nfann6a" path="res://Scenes/human_skin.tscn" id="2_rof10"]
@@ -11,41 +11,42 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_rof10"]
 viewport_path = NodePath("SubViewport")
 
-[node name="BaseHuman2" type="Node3D" groups=["Enemy"]]
+[node name="BaseHuman2" type="Node3D" unique_id=1023869840 groups=["Enemy"]]
 script = ExtResource("1_8pojx")
+damage = 1
 
-[node name="HumanSkin" parent="." instance=ExtResource("2_rof10")]
+[node name="HumanSkin" parent="." unique_id=959887251 instance=ExtResource("2_rof10")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0.76691234, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1488179600]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_1pujy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Enemy"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=511729649 groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=96104428]
 shape = SubResource("CapsuleShape3D_8pojx")
 
-[node name="Area3D" type="Area3D" parent="." groups=["Enemy"]]
+[node name="Area3D" type="Area3D" parent="." unique_id=1806048940 groups=["Enemy"]]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=153149496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8pojx")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1590849312]
 disable_3d = true
 transparent_bg = true
 
-[node name="Healthbar3D" parent="SubViewport" instance=ExtResource("2_tbb8h")]
+[node name="Healthbar3D" parent="SubViewport" unique_id=18228308 instance=ExtResource("2_tbb8h")]
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1939930461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3716364, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_rof10")
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1139083781]
 one_shot = true
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

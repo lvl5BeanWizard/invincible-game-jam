@@ -15,7 +15,6 @@ func _process(delta):
 
 func _spawn_rockets(qty: int, strength: int):
 	for q in range(qty):
-		print("launching rocket")
 		var r = rocket.instantiate()
 		r.set_str(strength)
 		r.global_transform = global_transform
