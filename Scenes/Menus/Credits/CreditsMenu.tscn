@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkxkcfh6dlky5"]
 
-[ext_resource type="Script" uid="uid://bu7t1gfun630p" path="res://Scenes/Menus/Controls/credits_menu.gd" id="1_t2yc8"]
+[ext_resource type="Script" uid="uid://bu7t1gfun630p" path="res://Scenes/Menus/Credits/credits_menu.gd" id="1_t2yc8"]
 [ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_k6dqh"]
 [ext_resource type="Script" uid="uid://2ooeeiiarjwc" path="res://Scenes/Menus/MenuButton.gd" id="3_04pwh"]
 [ext_resource type="AudioStream" uid="uid://mnhn2otysv2b" path="res://Sounds/Menu Sounds/BGM.ogg" id="4_s76oe"]

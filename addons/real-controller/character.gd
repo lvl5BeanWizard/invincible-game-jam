@@ -251,7 +251,7 @@ func _handle_shooting(delta: float) -> void:
 		stop_arm_laser.emit()
 
 func _handle_rockets(delta):
-	if Input.is_action_just_pressed("triangle"):
+	if Input.is_action_just_pressed("Rockets"):
 		rocket_launcher._spawn_rockets(rocket_qty, rocket_str)
 
 func _on_got_powerup(powerup: Powerup):

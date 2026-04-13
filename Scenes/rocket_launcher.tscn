@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://dhesnhgtj8th1"]
 
-[ext_resource type="Script" uid="uid://dlpwa8bt7w0s6" path="res://Scripts/rocket_launcher.gd" id="1_a8jkq"]
+[ext_resource type="Script" path="res://Scripts/rocket_launcher.gd" id="1_a8jkq"]
+[ext_resource type="ArrayMesh" uid="uid://c8vkewo3gf42p" path="res://Meshes/RocketLauncher.res" id="2_17r6f"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_17r6f"]
-
-[node name="RocketLauncher" type="Node3D" unique_id=866490165]
+[node name="RocketLauncher" type="Node3D" unique_id=314511803]
 script = ExtResource("1_a8jkq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=599813644]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("BoxMesh_17r6f")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1376508470]
+transform = Transform3D(-0.5016066, 0, -4.3851838e-08, 0, 0.5016066, 0, 4.3851838e-08, 0, -0.5016066, 0, -2.4301097, 0)
+mesh = ExtResource("2_17r6f")

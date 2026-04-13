@@ -71,6 +71,7 @@ func change_hover(PassedButton : Button):
 	MenuSounds.play()
 
 func ActivateButton(PassedButton : Button):
+	MenuSounds.play()
 	match PassedButton.text:
 		"Resume":
 			resume()
@@ -78,7 +79,7 @@ func ActivateButton(PassedButton : Button):
 			restart()
 		"Give Up":
 			quit()
-	MenuSounds.play()
+	
 	
 func change_selected():
 	var Menulength = $"Horizonal Center/Vertical Center/Selections".get_children().size()
