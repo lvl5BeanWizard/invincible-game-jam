@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdwwfqdibmcho"
-path="res://.godot/imported/playstation_button_color_cross.png-d688a2f3a39ab2aa83acc93ea3f07f5f.ctex"
+uid="uid://dv1v8idiajpwg"
+path="res://.godot/imported/playstation_button_color_square_outline.png-088cbdda66f8bb22828a6125872f768c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/ControlIcons/playstation_button_color_cross.png"
-dest_files=["res://.godot/imported/playstation_button_color_cross.png-d688a2f3a39ab2aa83acc93ea3f07f5f.ctex"]
+source_file="res://Textures/ControlIcons/Controller/playstation_button_color_square_outline.png"
+dest_files=["res://.godot/imported/playstation_button_color_square_outline.png-088cbdda66f8bb22828a6125872f768c.ctex"]
 
 [params]
 

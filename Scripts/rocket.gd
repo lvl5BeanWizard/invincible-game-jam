@@ -19,6 +19,8 @@ func set_str(new_strength: int):
 
 func _on_rocket_body_entered(body):
 	#spawn an explosion
+	
+	
 	var e = explosion.instantiate()
 	e.set_str(strength)
 	e.global_transform = $Path3D/PathFollow3D/MeshInstance3D.global_transform
