@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://dikjnuaykgjrh"]
 
+[ext_resource type="Texture2D" uid="uid://cbf43mwjbnq1p" path="res://Sprites/genericItem_color_102.png" id="1_rcrnr"]
 [ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_x7a0x"]
 
 [resource]
 script = ExtResource("1_x7a0x")
 name = "Server Heals"
 desc = "Gradually heal the server over time"
+image_texture = ExtResource("1_rcrnr")
 type = 2
 metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cauuxa0u7nife"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cauuxa0u7nife"]
 
 [ext_resource type="Shader" uid="uid://rvpn8h2satr3" path="res://Shaders/vfx_gameboy.gdshader" id="1_81p02"]
-[ext_resource type="Texture2D" uid="uid://xn5s1ih10d8e" path="res://Textures/hex_orange.png" id="2_17vob"]
+[ext_resource type="Texture2D" uid="uid://0c087l0wbms7" path="res://Textures/hex_green.png" id="2_17vob"]
 
 [resource]
 shader = ExtResource("1_81p02")

@@ -1,7 +1,8 @@
 extends Node3D
 
-@onready var animation_player = $Human/AnimationPlayer
+@onready var animation_player = $AnimationPlayer
 @onready var human = $Human
 
 func play_anim(anim: String):
-	animation_player.play(anim)
+	if animation_player != null:
+		animation_player.play(anim)

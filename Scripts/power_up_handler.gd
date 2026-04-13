@@ -11,7 +11,7 @@ var selected = 1
 signal got_powerup(powerup: Powerup)
 
 var common_powerups: Array[Powerup] = [
-	preload("res://Resources/Powerups/Defensive/ArmorPlating.tres"),
+	preload("res://Resources/Powerups/Utility/ServerHealOverTime.tres"),
 	preload("res://Resources/Powerups/Offensive/ChainsawArm.tres"),
 	preload("res://Resources/Powerups/Utility/Jetpack.tres"),
 	preload("res://Resources/Powerups/Offensive/RocketLauncher.tres"),

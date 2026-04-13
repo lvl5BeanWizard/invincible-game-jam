@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2mpkwlf4uvup"]
+[gd_scene format=3 uid="uid://2mpkwlf4uvup"]
 
 [ext_resource type="Script" uid="uid://brj8hckq8dcr6" path="res://Scripts/arm_laser.gd" id="1_ou7ml"]
 [ext_resource type="Material" uid="uid://co7f7ivc6dx35" path="res://Textures/arm_laser.tres" id="2_s0wuh"]
-[ext_resource type="AudioStream" uid="uid://6bkieeqn3rqd" path="res://Sounds/Sound Effects/spaceEngineLarge_003.ogg" id="3_cxxkq"]
+[ext_resource type="AudioStream" uid="uid://cmfl2j3hx5sic" path="res://Sounds/Sound Effects/spaceEngine_003.ogg" id="3_cxxkq"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ou7ml"]
 material = ExtResource("2_s0wuh")
@@ -11,23 +11,23 @@ height = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s0wuh"]
 height = 1.0
 
-[node name="ArmLaser" type="Node3D"]
+[node name="ArmLaser" type="Node3D" unique_id=1756975410]
 script = ExtResource("1_ou7ml")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1115553596]
 target_position = Vector3(0, 0, 1000)
 
-[node name="Laser" type="MeshInstance3D" parent="."]
+[node name="Laser" type="MeshInstance3D" parent="." unique_id=245751855]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ou7ml")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=639368412]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Weapon"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=519929119 groups=["Weapon"]]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 5.551115e-17, 0)
 shape = SubResource("CylinderShape3D_s0wuh")
 
-[node name="LaserSound" type="AudioStreamPlayer3D" parent="."]
+[node name="LaserSound" type="AudioStreamPlayer3D" parent="." unique_id=1436882705]
 stream = ExtResource("3_cxxkq")
-volume_db = -35.0
+volume_db = -20.0
 pitch_scale = 0.35

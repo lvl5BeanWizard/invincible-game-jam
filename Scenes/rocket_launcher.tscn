@@ -4,9 +4,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_17r6f"]
 
-[node name="RocketLauncher" type="Node3D"]
+[node name="RocketLauncher" type="Node3D" unique_id=866490165]
 script = ExtResource("1_a8jkq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=599813644]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_17r6f")

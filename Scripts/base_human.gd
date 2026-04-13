@@ -24,12 +24,11 @@ func _process(delta):
 
 func _handle_run(delta):
 	human_skin.look_at(server_loc)
-	position = position.move_toward(server_loc, 5 * delta)
+	position = position.move_toward(server_loc, 3 * delta)
 	
 func _handle_attack(delta):
 	human_skin.rotation_degrees.x = -90
 	human_skin.play_anim("attack/Root|Attack")
-
 
 func _take_damage(damage):
 	health -= damage

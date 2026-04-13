@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b2vk2e7hsrlmi"]
+
+[ext_resource type="Script" uid="uid://byx3a68g1pv8m" path="res://Scripts/base_human.gd" id="1_wxuwu"]
+[ext_resource type="PackedScene" uid="uid://bhh5fy2ltwjr8" path="res://Scenes/boss_human_skin.tscn" id="2_c7ymv"]
+[ext_resource type="PackedScene" uid="uid://2h2lgo5ylgwa" path="res://Scenes/healthbar_3d.tscn" id="4_byj1x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8pojx"]
+radius = 0.7
+height = 2.7
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rof10"]
+viewport_path = NodePath("SubViewport")
+
+[node name="BossHuman" type="Node3D" unique_id=1674295703 groups=["Enemy"]]
+script = ExtResource("1_wxuwu")
+health = 30
+damage = 5
+
+[node name="HumanSkin" parent="." unique_id=608872968 instance=ExtResource("2_c7ymv")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9966805, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1274642918 groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=903935150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24121094, 0)
+shape = SubResource("CapsuleShape3D_8pojx")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1066716550 groups=["Enemy"]]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1997482593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1484375, 0)
+shape = SubResource("CapsuleShape3D_8pojx")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=487987537]
+disable_3d = true
+transparent_bg = true
+
+[node name="Healthbar3D" parent="SubViewport" unique_id=1310775536 instance=ExtResource("4_byj1x")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1927926655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9170804, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_rof10")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=610160776]
+one_shot = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
