@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lajf5iu2kwdu" path="res://Scenes/server.tscn" id="3_eglq2"]
 [ext_resource type="PackedScene" uid="uid://pg064uvkcmuu" path="res://Scenes/enemy_spawner_system.tscn" id="4_rsyfn"]
 [ext_resource type="Shader" uid="uid://fqqo4t6mm78t" path="res://Materials/vhs.gdshader" id="8_2yvf5"]
+[ext_resource type="PackedScene" uid="uid://bg5jdxb8iswcv" path="res://Scenes/sentry_gun.tscn" id="9_3ihge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lpde8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -324,3 +325,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SentryGun" parent="." unique_id=1403038403 instance=ExtResource("9_3ihge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2412, 0.050001144, 21.51713)

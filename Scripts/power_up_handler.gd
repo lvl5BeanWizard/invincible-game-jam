@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var enemy_spawner = get_node("/root/TestLevel/EnemySpawnerSystem")
 
+@onready var ChangeSelectionSound = preload("res://Sounds/Menu Sounds/ChangeSelection.ogg")
 
 var card: PackedScene = preload("res://Scenes/power_up_card.tscn")
 var ControllerIcon = preload("res://Textures/ControlIcons/Controller/playstation_button_color_square_outline.png")
@@ -95,7 +96,7 @@ func update_selected():
 	for p in powerup_cards:
 		p.deselect()
 	powerup_cards[selected].select()
-	print(selected)
+	$Sounds.play()
 
 func _on_wave_cleared():
 	visible = true

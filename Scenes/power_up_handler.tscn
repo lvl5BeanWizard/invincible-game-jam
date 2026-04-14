@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d16653pwpfeiy" path="res://Scripts/power_up_handler.gd" id="1_pq6gq"]
 [ext_resource type="FontFile" uid="uid://btrsotsxoruc5" path="res://Fonts/Kenney Rocket.ttf" id="2_pq6gq"]
 [ext_resource type="Texture2D" uid="uid://c20a2lwaivx8k" path="res://Textures/ControlIcons/Keyboard/keyboard_tab.png" id="3_exrfi"]
+[ext_resource type="AudioStream" uid="uid://cqv2mtwssx5aw" path="res://Sounds/Menu Sounds/ChangeSelection.ogg" id="4_3spip"]
 
 [node name="PowerUpHandler" type="Node2D" unique_id=889517059]
 script = ExtResource("1_pq6gq")
@@ -37,6 +38,9 @@ theme_override_font_sizes/font_size = 20
 action_mode = 0
 text = "Reroll"
 icon = ExtResource("3_exrfi")
+
+[node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=1134096563]
+stream = ExtResource("4_3spip")
 
 [connection signal="pressed" from="CanvasLayer/RerollButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RerollButton" to="." method="_on_reroll_button_pressed"]
