@@ -55,7 +55,6 @@ func spawn_humans():
 			h = human_w_bat.instantiate()
 		elif rand_num == 4:
 			h = boss_human.instantiate()
-		print("spawning enemy")
 		#check the children number in our spawn holder
 		var spawn_length = $SpawnHolder.get_child_count() -1
 		#and grab a random one in range

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cgokqttkbbea6" path="res://Sounds/Sound Effects/explosionCrunch_000.ogg" id="2_a801j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a801j"]
-radius = 15.0
+radius = 20.0
 
 [sub_resource type="Curve" id="Curve_aayv4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6179245, 0.79775286), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
