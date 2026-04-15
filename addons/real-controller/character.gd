@@ -81,7 +81,7 @@ signal stop_arm_laser
 @onready var laser_aim_node = $CameraPivot/SpringArm3D/Camera3D/LaserAimNode
 
 var has_rockets = false
-var rocket_qty = 3
+var rocket_qty = 1
 var rocket_str = 3
 @onready var rocket_launcher = $character/GeneralSkeleton/BoneAttachment3D/RocketLauncher
 
@@ -89,6 +89,8 @@ var has_jetpack = false
 @onready var jetpack = $character/GeneralSkeleton/BoneAttachment3D/Jetpack
 
 @onready var server = get_node("/root/TestLevel/Server")
+
+@onready var level = get_node("/root/TestLevel")
 
 #end mad science
 
@@ -265,5 +267,23 @@ func _on_got_powerup(powerup: Powerup):
 		jetpack.visible = true
 	elif powerup.name == "Server Heals":
 		server.set_heal_over_time(2)
+	elif powerup.name == "Sentry Gun":
+		level.spawn_sentry(1)
+	elif powerup.name == "Sentry Gun 2":
+		level.spawn_sentry(2)
+	elif powerup.name == "Sentry Gun 3":
+		level.spawn_sentry(3)
+	#upgrades
+	elif powerup.name == "Laser Upgrade":
+		arm_laser.set_laser_damage(arm_laser.get_laser_damage() + 0.2)
+	elif powerup.name == "Sentry Gun Upgrade":
+		level.upgrade_sentrys()
+	elif powerup.name == "Rocket Launcher Upgrade":
+		rocket_qty += 1
+		rocket_str += 1
+	elif powerup.name == "Server Heal Upgrade":
+		server.set_heal_over_time(server.get_heal_over_time() + 2)
+		
+		
 	frozen = false
 	

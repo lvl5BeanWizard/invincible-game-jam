@@ -10,6 +10,9 @@ func _take_damage(damage: int):
 func set_heal_over_time(amt: int):
 	heal_over_time_amt = amt
 	$HealTimer.start()
+	
+func get_heal_over_time():
+	return heal_over_time_amt
 
 func _on_heal_timer_timeout():
 	server_health += heal_over_time_amt

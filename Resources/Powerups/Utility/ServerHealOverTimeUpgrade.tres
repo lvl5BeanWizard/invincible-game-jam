@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://dgpllei5lvgke"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_v6bvi"]
+
+[resource]
+script = ExtResource("1_v6bvi")
+name = "Server Heal Upgrade"
+desc = "Increase the amount and rate the server heals over time!"
+type = 2
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

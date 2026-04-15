@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://di3uxmhiqvw7c"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_r4vo7"]
+
+[resource]
+script = ExtResource("1_r4vo7")
+name = "Sentry Gun 3"
+desc = "Place a third sentry Gun near a spawn point to constantly defend"
+type = 1
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"

@@ -9,6 +9,7 @@
 script = ExtResource("1_pq6gq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1581250118]
+visible = false
 
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1499178902]
 z_index = -2
@@ -42,5 +43,5 @@ icon = ExtResource("3_exrfi")
 [node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=1134096563]
 stream = ExtResource("4_3spip")
 
-[connection signal="pressed" from="CanvasLayer/RerollButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RerollButton" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RerollButton" to="." method="_on_button_pressed"]

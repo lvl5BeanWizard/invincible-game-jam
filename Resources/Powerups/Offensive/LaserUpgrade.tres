@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Powerup" format=3 uid="uid://dm85q2nbmvgjl"]
+
+[ext_resource type="Script" uid="uid://b4uw7kj3pgbtl" path="res://Scripts/Powerup.gd" id="1_yi1yr"]
+
+[resource]
+script = ExtResource("1_yi1yr")
+name = "Laser Upgrade"
+desc = "Enhance the strength of your eye lasers!"
+type = null
+metadata/_custom_type_script = "uid://b4uw7kj3pgbtl"
